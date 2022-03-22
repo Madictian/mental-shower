@@ -21,29 +21,33 @@ router.post('/', async (req, res, next) => {
 
 
     //Checks if data is of type number
-    if(!typeof req.body.AirQ === 'number'){
+    if(!typeof req.body.zone === 'number'){
+        res.status(406).json({
+            Error: 'Outside allowed parameters, zone Should be a Number'
+        }
+    )
         return console.log('AirQ is not a number')
     }
 
     if(!(typeof req.body.Humidity === 'number')){
-        res.status(404).json({
-            Error: 'Outside allowed parameters'
+        res.status(406).json({
+            Error: 'Outside allowed parameters, Humidity Should be a Number'
         }
     )
         return console.log('Humidity is not a number')
     }
 
     if(!(typeof req.body.Temperature === 'number')){
-        res.status(404).json({
-            Error: 'Outside allowed parameters'
+        res.status(406).json({
+            Error: 'Outside allowed parameters, Temperature Should be a Number'
         }
     )
         return console.log('Temperature is not a number')
     }
 
     if(!(typeof req.body.AirQuality === 'number')){
-        res.status(404).json({
-            Error: 'Outside allowed parameters'
+        res.status(406).json({
+            Error: 'Outside allowed parameters, AirQuality Should be a Number'
         }
     )
         return console.log('AirQuality is not a number')
@@ -60,27 +64,27 @@ router.post('/', async (req, res, next) => {
 
     // Checks if data is in range.
     if(req.body.Humidity > 6 || req.body.Humidity < 1){
-        res.status(404).json({
+        res.status(406).json({
             Error: 'Outside allowed parameters'
         })
         return console.log('Humidity outside parameters ' + req.body.Humidity)
     }
     if(req.body.Temperature > 6 || req.body.Temperature < 1){
-        res.status(404).json({
+        res.status(406).json({
             Error: 'Outside allowed parameters'
         })
         return console.log('Temperature outside parameters ' + req.body.Temperature)
 
     }
     if(req.body.AirQuality > 6 || req.body.AirQuality < 1){
-        res.status(404).json({
+        res.status(406).json({
             Error: 'Outside allowed parameters'
         })
         return console.log('AirQuality outside parameters ' + req.body.AirQuality)
 
     }
     if(req.body.zone > 16 || req.body.zone < 1){
-        res.status(404).json({
+        res.status(406).json({
             Error: 'Outside allowed parameters'
         })
         return console.log('zone outside parameters ' + req.body.zone)
