@@ -12,7 +12,7 @@ app.use('/', defaultRoutes);
 
 const start = async () => {
     try {
-        await connectDB(process.env.DB_URL);
+        await connectDB(process.env.DBURL);
     
         app.listen(process.env.PORT, () => {
           console.log(`Server is running on port --> ${process.env.PORT}`);
