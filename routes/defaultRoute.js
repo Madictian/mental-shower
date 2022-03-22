@@ -7,7 +7,6 @@ const DataSchema = require('../model/dataScheme')
 //all instances of the data created from DataSchema
 router.get('/', async (req, res, next) => {
     try {
-      res.setHeader('Access-Control-Allow-Origin', '*');
       const data = await DataSchema.find({});
       res.status(200).json({ data });
     } catch (error) {
