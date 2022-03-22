@@ -21,7 +21,7 @@ router.post('/', async (req, res, next) => {
 
 
     //Checks if data is of type number
-    if(!typeof req.body.zone === 'number'){
+    if(!(typeof req.body.zone === 'number')){
         res.status(406).json({
             Error: 'Outside allowed parameters, zone Should be a Number'
         }
