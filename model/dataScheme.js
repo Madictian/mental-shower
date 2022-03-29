@@ -7,7 +7,7 @@ const DataSchema = new mongoose.Schema({
   },
   Temperature: {
     type: Number,
-    required: [true, 'TeTemperaturemp must be specified'],
+    required: [true, 'Temperaturemp must be specified'],
   },
   Humidity: {
     type: Number,
